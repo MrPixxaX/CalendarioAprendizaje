@@ -75,6 +75,10 @@
                     clean();
                     $("#txtFecha").val(date.format("Y-MM-DD"));
                     $('#txtHora').val(date.format("HH:mm"));
+                    
+                    $('#txt_fechafinal').val(date.format("Y-MM-DD"));
+                    $('#txt_horafinal').val(date.format("HH:mm"));
+
                     $("#ModalEventos").modal('show');
 
                 },
@@ -97,10 +101,12 @@
 
                     fechaHora = calEvent.start._i.split(" ");
                     $('#txtFecha').val(fechaHora[0]);
+                    $('#txtHora').val(fechaHora[1]);
+                    
 
-                    // FechaHoraf = calEvent.end._i.split(" ");
-                    // $('#txt_fechafinal').val(FechaHoraf[0]);
-                    // $('#txt_horafinal').val(FechaHoraf[1]);
+                    FechaHoraf = calEvent.end._i.split(" ");
+                    $('#txt_fechafinal').val(FechaHoraf[0]);
+                    $('#txt_horafinal').val(FechaHoraf[1]);
 
 
                     $('#ModalEventos').modal('show');
@@ -115,6 +121,11 @@
                     var fechaHora = calEvent.start.format().split("T");
                     $('#txtFecha').val(fechaHora[0]);
                     $('#txtHora').val(fechaHora[1]);
+
+                    var FechaHoraf = calEvent.end.format().split("T");
+                    $('#txt_fechafinal').val(FechaHoraf[0]);
+                    $('#txt_horafinal').val(FechaHoraf[1]);
+                    
 
                     recolectarDatosGUI();
                     EnviarInformacion('modificar', nuevoEvento, true);
@@ -176,7 +187,7 @@
                     <div class="form-group">
                         <div class="form-group">
                             <label for="">Fecha fin:</label>
-                            <input type="text" id="txt_fechafinal" name="txt_fechafinal" class="form-control">
+                            <input type="text" id="txt_fechafinal"  class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Hora final:</label>
